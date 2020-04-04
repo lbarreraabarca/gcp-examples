@@ -33,6 +33,8 @@ def run():
       '--runner=DataflowRunner'
    ]
 
+   print(argv)
+
    p = beam.Pipeline(argv=argv)
    input = 'gs://{0}/javahelp/*.java'.format(BUCKET)
    output_prefix = 'gs://{0}/javahelp/output'.format(BUCKET)
