@@ -38,6 +38,7 @@ def run():
    output_prefix = 'gs://{0}/javahelp/output'.format(BUCKET)
    searchTerm = 'import'
 
+   # In this section define steps of the job 
    # find all lines that contain the searchTerm
    (p
       | 'ReadJavaFiles' >> beam.io.ReadFromText(input)
