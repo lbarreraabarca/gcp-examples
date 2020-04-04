@@ -19,13 +19,14 @@ def my_grep(line, term):
    if line.startswith(term):
       yield line
 
-PROJECT='cloud-training-demos'
-BUCKET='cloud-training-demos'
+PROJECT='my-test-project-270713' #project-id
+BUCKET='lbarrera-1' #bucket-name
+JOB_NAME='GrepData2Bucket' #Job-Name in dataflow
 
 def run():
    argv = [
       '--project={0}'.format(PROJECT),
-      '--job_name=examplejob2',
+      '--job_name={0}'.format(JOB_NAME),
       '--save_main_session',
       '--staging_location=gs://{0}/staging/'.format(BUCKET),
       '--temp_location=gs://{0}/staging/'.format(BUCKET),
@@ -39,9 +40,9 @@ def run():
 
    # find all lines that contain the searchTerm
    (p
-      | 'GetJava' >> beam.io.ReadFromText(input)
-      | 'Grep' >> beam.FlatMap(lambda line: my_grep(line, searchTerm) )
-      | 'write' >> beam.io.WriteToText(output_prefix)
+      | 'ReadJavaFiles' >> beam.io.ReadFromText(input)
+      | 'FilterData' >> beam.FlatMap(lambda line: my_grep(line, searchTerm) )
+      | 'WriteResults' >> beam.io.WriteToText(output_prefix)
    )
 
    p.run()
