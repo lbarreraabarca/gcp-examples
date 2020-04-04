@@ -3,7 +3,6 @@
 if [ "$#" -ne 3 ]; then
    echo "Usage:   bash run_oncloud_params.sh project-name  bucket-name  mainclass-basename"
    echo "Example: bash run_oncloud_params.sh my-test-project-270713  lbarrera-1  Grep"
-   echo "Example: bash run_oncloud_params.sh my-test-project-270713  lbarrera-1  JavaProjectsThatNeedHelp"
    exit
 fi
 
