@@ -28,9 +28,9 @@ if __name__ == '__main__':
 
    # find all lines that contain the searchTerm
    (p
-      | 'GetJava' >> beam.io.ReadFromText(input)
-      | 'Grep' >> beam.FlatMap(lambda line: my_grep(line, searchTerm) )
-      | 'write' >> beam.io.WriteToText(output_prefix)
+      | 'ReadJavaFiles' >> beam.io.ReadFromText(input)
+      | 'FilterOperator' >> beam.FlatMap(lambda line: my_grep(line, searchTerm) )
+      | 'WriteResult' >> beam.io.WriteToText(output_prefix)
    )
 
    p.run().wait_until_finish()
