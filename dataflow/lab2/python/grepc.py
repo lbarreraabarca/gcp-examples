@@ -21,7 +21,7 @@ def my_grep(line, term):
 
 PROJECT='my-test-project-270713' #project-id
 BUCKET='lbarrera-1' #bucket-name
-JOB_NAME='GrepData2Bucket' #Job-Name in dataflow
+JOB_NAME='grepdata2bucket' #Job-Name in dataflow
 
 def run():
    argv = [
@@ -32,8 +32,6 @@ def run():
       '--temp_location=gs://{0}/staging/'.format(BUCKET),
       '--runner=DataflowRunner'
    ]
-
-   print(argv)
 
    p = beam.Pipeline(argv=argv)
    input = 'gs://{0}/javahelp/*.java'.format(BUCKET)
