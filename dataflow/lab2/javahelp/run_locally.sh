@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [ "$#" -ne 1 ]; then
-   echo "Usage:   ./run_locally.sh mainclass-basename"
-   echo "Example: ./run_oncloud.sh Grep"
+   echo "Usage:   bash run_locally.sh mainclass-basename"
+   echo "Example: bash run_locally.sh Grep"
    exit
 fi
 
