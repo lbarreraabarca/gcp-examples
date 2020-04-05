@@ -7,3 +7,6 @@ mvn archetype:generate \
     -Dversion="0.1" \
     -DinteractiveMode=false \
     -Dpackage=com.example
+
+export PROJECT_ID=my-test-project-270713
+export BUCKET_NAME=lbarrera-1
