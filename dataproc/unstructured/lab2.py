@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
+import os
 from pyspark import SparkContext
 sc = SparkContext("local")
 
-file = sc.textFile("gs://BUCKET_NAME/unstructured/lab2-input.txt")
+file = sc.textFile("gs://"+os.environ.get('DEVSHELL_PROJECT_ID')+"/unstructured/lab2-input.txt")
 dataLines = file.map(lambda s: s.split(",")).map(lambda x : (x[0], [x[1]]))
 print(dataLines.take(100))
 
