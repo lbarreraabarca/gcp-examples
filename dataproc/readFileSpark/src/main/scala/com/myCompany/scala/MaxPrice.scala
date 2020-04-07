@@ -12,6 +12,6 @@ object MaxPrice {
       .map(_.split(","))
       .map(rec => ((rec(0).split("-"))(0).toInt, rec(1).toFloat))
       .reduceByKey((a,b) => Math.max(a,b))
-      .saveAsTextFile(args(1))
+      .saveAsTextFile("gs://lbarrera-1/scala-jars/readFileSpark/output")
   }
 }
