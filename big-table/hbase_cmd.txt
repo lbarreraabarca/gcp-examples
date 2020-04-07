@@ -1,0 +1,7 @@
+list
+create 'students', 'personal'
+put 'students', '12345', 'personal: name', 'john'
+put 'students', '12345', 'personal: state', 'CA'
+scan 'students'
+disable 'students'
+drop 'students'
